@@ -480,68 +480,94 @@ def build(story, st):
     # ── SLIDE 7 ───────────────────────────────────────────────────────────────
     slide_box(story, st, "7", "Closeness Centrality", p1=False)
     dice(story, st, "Persona 2",
-        "Gracias. Continúo con la cuarta métrica, Closeness Centrality. "
-        "Esta mide qué tan cerca estás del resto de la red en promedio. "
-        "Un valor alto significa que puedes llegar a cualquier autor en muy pocos pasos. "
-        "El nodo 13801 lidera con 0,245 — alcanza a cualquier autor en un promedio de 4 pasos, "
-        "mientras que el promedio de la red necesita 6. "
-        "O sea, puede difundir información más rápido que casi cualquier otro.",
+        "Gracias. La cuarta y última métrica es Closeness Centrality, "
+        "que mide qué tan central estás dentro de la red. "
+        "Para entenderlo: imagínense que la red es un colegio con 4 mil alumnos "
+        "y para mandar un mensaje tienen que pasárselo por intermediarios, uno por uno. "
+        "Si estás en el centro del colegio, le llegas a cualquiera en pocos pasos. "
+        "Si estás en una esquina, tienes que pasar por muchos intermediarios. "
+        "El nodo 13801 es el que está más al centro de toda la red: "
+        "llega a cualquier autor en solo 4 pasos en promedio, "
+        "mientras que el autor promedio necesita 6 pasos. "
+        "Eso lo convierte en el autor que puede difundir su trabajo más rápido "
+        "a más gente en toda la red.",
         p1=False)
     apunte(story, st,
-        "Señala el contraste 4,08 pasos vs 6,05 pasos. Ese es el punto que hay que marcar.")
+        "Señala el contraste 4,08 pasos vs 6,05 pasos. La analogía del colegio ayuda mucho acá.")
 
     # ── SLIDE 8 ───────────────────────────────────────────────────────────────
     slide_box(story, st, "8", "Cuadro Comparativo", p1=False)
     dice(story, st, "Persona 2",
-        "En el cuadro comparativo vemos quién aparece en más rankings. "
-        "De los 27 autores que entran en algún top 10, "
-        "solo tres aparecen en tres métricas al mismo tiempo: el 21012, el 12365 y el 17655. "
-        "El 21012 lidera en colaboraciones, pero el 13801 es número 1 en Betweenness y Closeness, "
-        "que son las métricas de conectividad. "
-        "Eso lo hace más estratégico para la cohesión de la red. "
-        "La influencia en una red científica es multidimensional: nadie domina todo.",
+        "Este slide resume todo lo que analizamos. "
+        "Hicimos cuatro rankings, uno por cada métrica, "
+        "y la pregunta es: ¿hay autores que sean importantes en varios rankings a la vez? "
+        "En total, 27 autores distintos aparecen en algún top 10. "
+        "Pero solo tres aparecen en tres rankings al mismo tiempo: el 21012, el 12365 y el 17655. "
+        "El 21012 es el más colaborativo y el más influyente. "
+        "Pero el nodo 13801 es el número 1 en las dos métricas de conectividad: "
+        "Betweenness y Closeness. "
+        "O sea, es el puente más importante Y el más céntrico de la red. "
+        "Eso lo hace más estratégico que el 21012 para que la red funcione, "
+        "aunque tenga menos coautores. "
+        "La conclusión es que ser importante en una red científica no es una sola cosa: "
+        "hay distintos tipos de importancia y ningún autor domina todo.",
         p1=False)
     apunte(story, st,
-        "Señala la fila del 13801 y la fila del 21012. El contraste entre esos dos es lo más rico.")
+        "Señala la fila del 13801 y la del 21012. Ese contraste es el punto más rico de la slide.")
 
     # ── SLIDE 9 ───────────────────────────────────────────────────────────────
     slide_box(story, st, "9", "Comunidades — Modularidad", p1=False)
     dice(story, st, "Persona 2",
-        "Pasamos al segundo bloque: las comunidades. "
-        "Usamos el algoritmo de Modularidad de Gephi, que detecta grupos de autores "
-        "que colaboran mucho entre sí. Encontramos 63 comunidades con un Q de 0,80. "
-        "Ese valor es muy alto — cercano a 1, el máximo — lo que indica que "
-        "las comunidades son reales y bien definidas. "
-        "La más grande, C0, tiene 901 autores — el 21,7% del total. "
-        "Las 5 primeras juntas concentran más de la mitad.",
+        "Pasamos al segundo bloque del trabajo: las comunidades. "
+        "La pregunta acá es si hay grupos de físicos que publican mucho entre sí "
+        "y poco con el resto. Para detectarlos, usamos el algoritmo de Modularidad de Gephi, "
+        "que busca automáticamente grupos con muchas conexiones internas y pocas hacia afuera. "
+        "Encontramos 63 grupos. "
+        "Y calculamos un valor llamado Q, que es básicamente la nota de qué tan bien definidos "
+        "están esos grupos. Va de 0 a 1: si Q fuera 0, los grupos no son reales. "
+        "Si fuera 1, son perfectos. Nosotros obtuvimos Q igual a 0,80, que es muy alto, "
+        "entonces podemos decir con confianza que estas 63 comunidades son reales. "
+        "La más grande, C0, tiene 901 autores, que es casi el 22% de toda la red. "
+        "Y las 5 primeras juntas concentran más de la mitad de todos los autores.",
         p1=False)
     apunte(story, st,
-        "Señala la tabla y el gráfico de barras. Nombra C0 a C4 como las más grandes.")
+        "Señala la tabla y el gráfico. Explica el Q primero, luego los números de C0 a C4.")
 
     # ── SLIDE 10 ──────────────────────────────────────────────────────────────
     slide_box(story, st, "10", "Comunidad más grande — C0 (901 nodos)", p1=False)
     dice(story, st, "Persona 2",
-        "C0 tiene 901 nodos y un clustering promedio de 0,51. "
-        "Eso significa que si dos autores de C0 comparten un coautor, "
-        "hay un 51% de probabilidad de que ellos también hayan publicado juntos — "
-        "se forman muchos triángulos de colaboración. "
-        "Los líderes de las cuatro métricas dentro de C0 son distintos: "
-        "no hay un solo jefe, sino liderazgos especializados. "
-        "Y el nodo 13801, que vive en C0, es el que más conecta hacia afuera. "
-        "O sea, C0 es el núcleo central de toda la red.",
+        "Veamos la comunidad más grande en detalle. C0 tiene 901 autores. "
+        "Para entender cómo está conectada internamente miramos dos cosas. "
+        "Primero, la densidad: 0,005. "
+        "Eso significa que de todas las colaboraciones posibles entre sus 901 miembros, "
+        "solo existe el 0,5%. "
+        "O sea, C0 es enorme pero dispersa — no todos se conocen entre sí. "
+        "Segundo, el clustering: 0,51. "
+        "Si dos autores de C0 tienen un coautor en común, "
+        "hay 51% de probabilidad de que ellos también hayan publicado juntos. "
+        "Algo importante: los líderes de cada métrica dentro de C0 son distintos. "
+        "No hay un solo jefe — hay distintos tipos de liderazgo especializado. "
+        "Y el nodo 13801, que es el puente más crítico de toda la red, vive en C0. "
+        "O sea, C0 no solo es la comunidad más grande, sino también el núcleo que conecta todo.",
         p1=False)
     apunte(story, st,
-        "Señala la tabla. El punto de los liderazgos distintos es lo más interesante.")
+        "Señala la tabla fila por fila. El punto de los liderazgos distintos es lo más interesante.")
 
     # ── SLIDE 11 ──────────────────────────────────────────────────────────────
     slide_box(story, st, "11", "Comunidad más compacta — C17 (47 nodos)", p1=False)
     dice(story, st, "Persona 2",
-        "Para contrastar, la comunidad más compacta con más de 20 autores es C17, "
-        "con solo 47 nodos. Su densidad es 0,684 y su clustering 0,86. "
-        "O sea, el 68% de todas las colaboraciones posibles entre esos 47 autores existen de verdad — "
-        "casi todos publican con casi todos. "
-        "Probablemente es un equipo de la misma institución o trabajando en algo muy específico. "
-        "Si comparamos con C0, que tiene densidad 0,005, son mundos completamente distintos.",
+        "Para contrastar con C0, veamos C17, la comunidad más compacta. "
+        "Tiene solo 47 autores — mucho más pequeña. "
+        "Pero su densidad es 0,684: el 68% de todas las colaboraciones posibles "
+        "entre esos 47 autores existen de verdad. "
+        "Y su clustering es 0,86: si dos miembros comparten un coautor, "
+        "hay 86% de probabilidad de que ellos también hayan publicado juntos. "
+        "Casi todos publican con casi todos. "
+        "Probablemente es un equipo de la misma institución o trabajando en un problema muy específico, "
+        "donde la colaboración es estrecha y constante. "
+        "Si comparamos con C0, que tiene densidad de solo 0,005, "
+        "son mundos completamente distintos: "
+        "C0 es grande y dispersa, C17 es pequeña y todos se conocen.",
         p1=False)
     apunte(story, st,
         "El contraste C17 densidad 0,684 vs C0 densidad 0,005 es impactante — úsalo.")
@@ -549,26 +575,37 @@ def build(story, st):
     # ── SLIDE 12 ──────────────────────────────────────────────────────────────
     slide_box(story, st, "12", "Conclusiones", p1=False)
     dice(story, st, "Persona 2",
-        "Para cerrar, los cinco hallazgos principales. "
-        "Uno: la red es libre de escala — el nodo 21012 tiene 81 coautores cuando el promedio es 5,53. "
-        "Dos: la influencia es multidimensional — cada métrica mide algo distinto y nadie domina todo. "
-        "Tres: el nodo 13801 es el más crítico para la cohesión — si lo sacas, la red se fragmenta. "
-        "Cuatro: hay 63 comunidades bien definidas con Q de 0,80. "
-        "Y cinco: C0 es el núcleo disperso que conecta todo, y C17 es lo opuesto — pequeño y muy denso.",
+        "Para cerrar, los cinco hallazgos más importantes del análisis. "
+        "Uno: la red es libre de escala. "
+        "Unos pocos autores concentran la mayoría de las colaboraciones — "
+        "el nodo 21012 tiene 81 coautores cuando el promedio es solo 5,53. "
+        "Como Instagram, donde unos pocos tienen millones de seguidores y el resto tiene decenas. "
+        "Dos: la influencia es multidimensional. "
+        "Ser popular, ser influyente, ser un puente y estar cerca de todos son cosas distintas, "
+        "y ningún autor domina en todo. "
+        "Tres: el nodo 13801 es el más crítico para la cohesión de la red. "
+        "Si lo sacamos, grupos enteros quedan desconectados — es el más importante "
+        "aunque no sea el más famoso. "
+        "Cuatro: encontramos 63 comunidades con un Q de 0,80, "
+        "lo que indica que son grupos reales, probablemente líneas de investigación distintas. "
+        "Y cinco: dentro de esas comunidades hay dos extremos — "
+        "C0, que es enorme y dispersa pero conecta todo, "
+        "y C17, que es pequeña pero casi todos sus miembros se conocen entre sí.",
         p1=False)
     apunte(story, st,
-        "Lee las 5 conclusiones con pausa entre cada una. Este es el cierre — tómate el tiempo.")
+        "Lee cada punto con pausa. Este es el cierre — tómate el tiempo, no te apures.")
 
     # ── SLIDE 13 ──────────────────────────────────────────────────────────────
     slide_box(story, st, "13", "Cierre y Referencias", p1=False)
     dice(story, st, "Persona 2",
-        "Eso sería todo de nuestra parte. "
-        "Las referencias incluyen el paper de Blondel 2008 sobre el algoritmo de Louvain "
-        "y el repositorio SNAP de Stanford donde descargamos la red. "
+        "Eso es todo de nuestra parte. "
+        "Las referencias principales son el paper de Blondel del año 2008, "
+        "que describe el algoritmo de Louvain que usamos para detectar las comunidades, "
+        "y el repositorio SNAP de Stanford, de donde descargamos la red. "
         "Quedamos disponibles para cualquier pregunta, profesor.",
         p1=False)
     apunte(story, st,
-        "Di esto con calma, mira al profe al terminar y espera con seguridad.")
+        "Di esto tranquilo, mira al profe al terminar y espera con seguridad. No agregues nada más.")
 
     sp(story, 0.3)
 
